@@ -13,7 +13,7 @@ body {
 
 /* Banner */
 .banner {
-  height: 50vh;
+  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/img/photofondo.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
@@ -131,4 +131,5 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
   color: #aaa;
+
 }
