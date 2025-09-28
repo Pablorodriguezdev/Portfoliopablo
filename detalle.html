@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Detalle del Proyecto</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      padding: 20px;
+    }  
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #00d4ff;
+      margin-bottom: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      display: block;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .tarjeta {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-left: 4px solid #00d4ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  
+    <!-- Banner -->
+  <header class="banner">
+    <div class="overlay">
+      <h1>Pablo Rodríguez Moreno</h1>
+      <p>Desarrollador Backend en Java | Spring Boot | Frontend en Vue.js | Kotlin | JavaScript | Python</p>      
+    </div>
+  </header>
+
+  <!-- Video -->
+  <section class="section">
+    <h2>Demo en Video</h2>
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/29jwgtD-Bwo" 
+        title="Demo Proyecto" 
+        frameborder="0" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Carrusel de presentación -->
+  <section class="section">
+    <h2>Presentación del Proyecto</h2>
+    <div class="carousel">
+      <div class="slides">
+        <img src="./assets/img/Slice1.png" alt="Pantallazo 1">
+      <img src="./assets/img/Slice2.png" alt="Pantallazo 2">
+      <img src="./assets/img/Slice3.png" alt="Pantallazo 3">
+      <img src="./assets/img/Slice4.png" alt="Pantallazo 4">
+      <img src="./assets/img/Slice5.png" alt="Pantallazo 5">
+      <img src="./assets/img/Slice6.png" alt="Pantallazo 6">
+      <img src="./assets/img/Slice7.png" alt="Pantallazo 7">
+      <img src="./assets/img/Slice8.png" alt="Pantallazo 8">
+      <img src="./assets/img/Slice9.png" alt="Pantallazo 9">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>    
+  </section>
+
+  <!-- Descripción técnica -->
+  <section class="section">
+    <h2>Resumen Técnico</h2>
+    <div class="tarjeta">
+      <p>
+        <strong>Servidor Multimedia Web</strong> es una aplicación web diseñada para gestionar y visualizar colecciones de películas de forma privada y personalizada.  
+        <br><br>
+        🔹 Backend: <strong>Spring Boot + Java</strong> con base de datos <strong>H2 embebida</strong> (persistente en disco, directorio <code>/data</code>).  
+        <br><br>
+        🔹 Frontend: <strong>Vue.js + Tailwind CSS</strong> para una interfaz moderna, responsiva y adaptable a cualquier dispositivo.  
+        <br><br>
+        🔹 Funcionalidades: carga de archivos locales, tema claro/oscuro, separación de usuarios, progreso guardado, anotación de películas vistas y reproducción directa en navegador.  
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Pablo Rodríguez Moreno</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let index = 0;
+
+    function showSlide(i) {
+      if (i >= images.length) index = 0;
+      if (i < 0) index = images.length - 1;
+      slides.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index++;
+      showSlide(index);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index--;
+      showSlide(index);
+    });
+  </script>
+
+</body>
+</html>
