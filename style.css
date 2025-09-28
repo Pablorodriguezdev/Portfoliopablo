@@ -123,6 +123,9 @@ body {
 .project-card a:hover {
   background: #00aacc;
 }
+.justify-text {
+  text-align: justify;
+}
 
 /* Footer */
 footer {
@@ -133,3 +136,4 @@ footer {
   color: #aaa;
 
 }
+
