@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
+  <div id="loading-screen" class="loading-screen">
+  <div class="typing-container">
+    <h1 id="typewriter" class="typewriter"></h1>
+  </div>
+</div>
   <!-- Banner -->
   <header class="banner">
     <div class="overlay">
@@ -122,10 +126,36 @@
   <footer>
     <p>&copy; 2025 Pablo Rodríguez Moreno. Todos los derechos reservados.</p>
   </footer>
+   <script>
+    // === Animación de pantalla de carga ===
+(function() {
+  const text = "Pablo Rodríguez Moreno"; 
+  const typewriterElement = document.getElementById("typewriter");
+  const loadingScreen = document.getElementById("loading-screen");
 
+  if (typewriterElement && loadingScreen) {
+    let index = 0;
+
+    function typeText() {
+      if (index < text.length) {
+        typewriterElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 150); 
+      } else {
+        setTimeout(() => {
+          loadingScreen.classList.add("hidden");
+        }, 1000); 
+      }
+    }
+
+    window.onload = typeText;
+  }
+})();
+  </script>
 </body>
 
 </html>
+
 
 
 
